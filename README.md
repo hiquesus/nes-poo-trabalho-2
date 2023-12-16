@@ -1,2 +1,3 @@
-# nes-poo-trabalho-2
-Trabalho 02 de OOP no NES
+# Trabalho 02 de OOP no NES
+
+em desenvolvimento.
