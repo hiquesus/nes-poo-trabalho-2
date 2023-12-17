@@ -21,6 +21,7 @@ arr_simples = [1, 2, 3, 4, 5, 6, 7]
 arvore_simples = bt.construir_arvore(arr_simples)
 print(f"Array da árvore: {arvore_simples.to_array()} \n Representação Gráfica:")
 arvore_simples.print_tree()
+
 arvore_simples.heapify()
 print(f"Array da árvore (pós heapify): {arvore_simples.to_array()} \n Representação Gráfica:")
 arvore_simples.print_tree()

@@ -13,7 +13,7 @@ class ArvoreBinaria:
         self.esquerda = None
     
     def heapify(self) -> None:
-        """Performa o heapify, criando a estrutura heap. Nota-se que
+        """Performa o heapify, criando uma estrutura heap. Nota-se que
         ele não garante que a árvore se torne um max-heap, esse seria papel do
         algoritmo Build Max Heap
         """
@@ -54,13 +54,13 @@ class ArvoreBinaria:
             else:
                 lista.append(None)
         # remove os "None's" do final da array,
-        # deixando somente os necessários ex: [1, 2, 3, None, 4]
+        # deixando somente os necessários; e.g.: [1, 2, 3, None, 4]
         while lista and lista[-1] == None:
             lista.pop()
         return lista
         
 
-    def print_tree(self, space=0) -> None:
+    def print_tree(self, space: int = 0) -> None:
         """Método recursivo que imprime toda a árvore
 
         Args:
@@ -73,8 +73,8 @@ class ArvoreBinaria:
             print(" " * 5 * space + str(self.valor))
             if self.esquerda:
                 self.esquerda.print_tree(space)
-
     
+
 def construir_recursiva(i: int, arr: List[float]) -> ArvoreBinaria:
     """chama recursivamente até a árvore ser construida
 
@@ -91,9 +91,9 @@ def construir_recursiva(i: int, arr: List[float]) -> ArvoreBinaria:
     arvore = ArvoreBinaria(arr[i])
     # caso exista, cria as subarvores esq e dir (caso existam na lista)
     if arvore.valor:
-        if 2*i+1 <= len(arr):
+        if 2*i+1 < len(arr):
             arvore.esquerda = construir_recursiva(2*i+1, arr)
-        if 2*i+2 <= len(arr):
+        if 2*i+2 < len(arr):
             arvore.direita = construir_recursiva(2*i+2, arr)
     # retorna a árvore criada
     return arvore
