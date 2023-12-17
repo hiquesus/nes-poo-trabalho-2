@@ -17,23 +17,25 @@ class ArvoreBinaria:
         ele não garante que a árvore se torne um max-heap, esse seria papel do
         algoritmo Build Max Heap
         """
-        largest = self.valor
-        
-        if self.esquerda != None and self.esquerda.valor > largest:
-            largest = self.esquerda.valor
-        
-        if self.direita != None and self.direita.valor > largest:
-            largest = self.direita.valor
-        
-        if largest != self.valor:
-            """efetua a troca e chama recursivamente o heapify até que não haja
-            necessidade de troca (esteja em heap)"""
-            self.valor, largest = largest, self.valor
-            self.largest.heapify()
+        if self.valor != None:
+            largest_val = self.valor
+            lar = self
 
-    """def build_max_heap(self) -> None:
-        for i in range(len(self.to_array() // 2 - 1), -1, -1):
-            self.heapify(i)"""
+            if self.esquerda and self.esquerda.valor:
+                if self.esquerda.valor > largest_val:
+                    largest_val = self.esquerda.valor
+                    lar = self.esquerda
+            
+            if self.esquerda and self.direita.valor:
+                if self.direita.valor > largest_val:
+                    largest_val = self.direita.valor
+                    lar = self.direita
+            
+            if largest_val != self.valor:
+                """efetua a troca e chama recursivamente o heapify até que não haja
+                necessidade de troca (o nó esteja em heap)"""
+                self.valor, lar.valor = lar.valor, self.valor
+                lar.heapify()
     
     def to_array(self) -> List[float]:
         """Transforma o objeto árvore binária em forma de lista
