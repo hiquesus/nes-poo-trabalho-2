@@ -1,0 +1,2 @@
+Não há nenhuma relação de herança, composição, ou agregação,
+visto que só há uma classe (ArvoreBinaria)
