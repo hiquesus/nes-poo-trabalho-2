@@ -29,7 +29,7 @@ class ArvoreBinaria:
             """efetua a troca e chama recursivamente o heapify até que não haja
             necessidade de troca (esteja em heap)"""
             self.valor, largest = largest, self.valor
-            self.heapify()
+            self.largest.heapify()
 
     """def build_max_heap(self) -> None:
         for i in range(len(self.to_array() // 2 - 1), -1, -1):
@@ -51,6 +51,8 @@ class ArvoreBinaria:
                 fila.append(no_atual.direita)
             else:
                 lista.append(None)
+        # remove os "None's" do final da array,
+        # deixando somente os necessários ex: [1, 2, 3, None, 4]
         while lista and lista[-1] == None:
             lista.pop()
         return lista
@@ -71,7 +73,16 @@ class ArvoreBinaria:
                 self.esquerda.print_tree(space)
 
     
-def construir_recursiva(i, arr):
+def construir_recursiva(i: int, arr: List[float]) -> ArvoreBinaria:
+    """chama recursivamente até a árvore ser construida
+
+    Args:
+        i (int): posição do atual i da árvore
+        arr (List[float]): array em formato de árvore binária
+
+    Returns:
+        ArvoreBinaria: Retorna o objeto da árvore
+    """
     if i >= len(arr):
         return None
     # inicia a árvore
@@ -85,7 +96,14 @@ def construir_recursiva(i, arr):
     # retorna a árvore criada
     return arvore
 
-def construir_arvore(arr):
-    # função que inicia a construção da árvore, chamando recursivamente
-    # construir_recursiva com i = 0.
+def construir_arvore(arr: List[float]) -> ArvoreBinaria:
+    """função que inicia a construção da árvore, 
+    chamando construir_recursiva com i = 0.
+
+    Args:
+        arr (List[float]): array inicial em formato de árvore binária
+
+    Returns:
+        ArvoreBinaria: o objeto final da árvore completa
+    """
     return construir_recursiva(0, arr)
