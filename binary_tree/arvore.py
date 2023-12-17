@@ -31,7 +31,14 @@ class ArvoreBinaria:
             self.heapify()
     
     def to_array(self) -> List[float]:
-        pass
+        lista = []
+        if self is not None:
+            lista.append(self.valor)
+            if self.esquerda is not None:
+                lista.extend(self.esquerda.to_array())
+            if self.direita is not None:
+                lista.extend(self.direita.to_array())
+        return lista
     
     def print_tree(self) -> None:
         pass
