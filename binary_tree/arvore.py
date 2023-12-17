@@ -58,7 +58,6 @@ class ArvoreBinaria:
         while lista and lista[-1] == None:
             lista.pop()
         return lista
-        
 
     def print_tree(self, space: int = 0) -> None:
         """Método recursivo que imprime toda a árvore
@@ -73,7 +72,7 @@ class ArvoreBinaria:
             print(" " * 5 * space + str(self.valor))
             if self.esquerda:
                 self.esquerda.print_tree(space)
-    
+
 
 def construir_recursiva(i: int, arr: List[float]) -> ArvoreBinaria:
     """chama recursivamente até a árvore ser construida
